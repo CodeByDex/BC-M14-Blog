@@ -1,5 +1,5 @@
 const sq = require("../../config/connection");
-const {User, UserPassword} = require("../../models/User");
+const {User} = require("../../models/User");
 const {Post, Comment} = require("../../models/Post");
 
 async function seedAll() {
