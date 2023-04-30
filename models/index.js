@@ -1,14 +1,14 @@
-const {User, UserPassword} = require("./User");
+const {User} = require("./User");
 const {Post, Comment} = require("./Post");
 
-User.hasMany(UserPassword, {
-    foreignKey: "UserID",
-    onDelete: "CASCADE"
-});
+// User.hasMany(UserPassword, {
+//     foreignKey: "UserID",
+//     onDelete: "CASCADE"
+// });
 
-UserPassword.belongsTo(User, {
-    foreignKey: "UserID"
-});
+// UserPassword.belongsTo(User, {
+//     foreignKey: "UserID"
+// });
 
 User.hasMany(Post, {
     foreignKey: "UserID",
