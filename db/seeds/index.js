@@ -1,9 +1,9 @@
-const sq = require("../../config/connection");
+const db = require("../../config/connection");
 const {User} = require("../../models/User");
 const {Post, Comment} = require("../../models/Post");
 
 async function seedAll() {
-    await sq.sync({force: true});
+    await db.sync({force: true})
 
     process.exit(0);
 }
