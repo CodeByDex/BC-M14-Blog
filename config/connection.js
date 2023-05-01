@@ -4,6 +4,8 @@ const Sequelize = require("sequelize");
 
 const db = process.env.JAWSDB_URL
     ? new Sequelize(process.env.JAWSDB_URL, {
+        host: "localhost",
+        dialect: "mysql",
         define: {
             underscored: false,
             freezeTableName: true,
