@@ -3,7 +3,12 @@ require("dotenv").config();
 const Sequelize = require("sequelize");
 
 const db = process.env.JAWSDB_URL
-    ? new Sequelize(process.env.JAWSDB_URL)
+    ? new Sequelize(process.env.JAWSDB_URL, {
+        define: {
+            underscored: false,
+            freezeTableName: true,
+            timestamps: true
+        } })
     : new Sequelize(process.env.DB_Name, 
         process.env.DB_User,
         process.env.DB_PW,
@@ -17,5 +22,7 @@ const db = process.env.JAWSDB_URL
             }
         }
         );
+
+let foo = new Sequelize()
 
 module.exports = db;
