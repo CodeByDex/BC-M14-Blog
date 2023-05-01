@@ -4,7 +4,6 @@ const Sequelize = require("sequelize");
 
 const db = process.env.JAWSDB_URL
     ? new Sequelize(process.env.JAWSDB_URL, {
-        host: "localhost",
         dialect: "mysql",
         define: {
             underscored: false,
@@ -24,7 +23,5 @@ const db = process.env.JAWSDB_URL
             }
         }
         );
-
-let foo = new Sequelize()
 
 module.exports = db;
