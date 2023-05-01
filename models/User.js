@@ -2,7 +2,7 @@ const {Model, DataTypes} = require("sequelize");
 const db = require("../config/connection");
 
 class User extends Model {};
-//class UserPassword extends Model {};
+class UserPassword extends Model {};
 
 User.init(
     {
@@ -53,48 +53,48 @@ User.init(
     }
 );
 
-// UserPassword.init(
-//     {
-//         ID: {
-//         type: DataTypes.INTEGER,
-//         allowNull: false,
-//         primaryKey: true,
-//         autoIncrement: true
-//         },
-//         UserID: {
-//             type: DataTypes.INTEGER,
-//             allowNull: false,
-//             references: {
-//                 model: "User",
-//                 key: "ID"
-//             }
-//         },
-//         UserPassword: {
-//             type: DataTypes.STRING(20),
-//             allowNull: false,
-//             unique: true,
-//             validate: {
-//                 isAlphanumeric: true,
-//                 len: [5,20]
-//             }
-//         },
-//         Status: {
-//             type: DataTypes.STRING(1),
-//             allowNull: false,
-//             defaultValue: "A",
-//             validate: {
-//                 isIn: ["A", "I", "T"]
-//             }
-//         }
-//     }, 
-//     {
-//         sequelize: db
-//     }
-// )
+UserPassword.init(
+    {
+        ID: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
+        },
+        UserID: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: "User",
+                key: "ID"
+            }
+        },
+        UserPassword: {
+            type: DataTypes.STRING(20),
+            allowNull: false,
+            unique: true,
+            validate: {
+                isAlphanumeric: true,
+                len: [5,20]
+            }
+        },
+        Status: {
+            type: DataTypes.STRING(1),
+            allowNull: false,
+            defaultValue: "A",
+            validate: {
+                isIn: ["A", "I", "T"]
+            }
+        }
+    }, 
+    {
+        sequelize: db
+    }
+)
 
 module.exports = {
     User,
-    //UserPassword
+    UserPassword
 }
 
 /**
