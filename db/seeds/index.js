@@ -4,12 +4,7 @@ const {Post, Comment} = require("../../models/Post");
 
 async function seedAll() {
     await db.sync({
-        force: true, 
-        define: {
-            underscored: false,
-            freezeTableName: true,
-            timestamps: true
-        }
+        force: true
     })
 
     process.exit(0);
