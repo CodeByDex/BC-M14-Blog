@@ -13,4 +13,8 @@ router.get("/blog/:id", (req, res) => {
     res.render("blog");
 })
 
+router.get("/dashboard", (req, res) => {
+    res.render("dashboard");
+})
+
 module.exports = router;
