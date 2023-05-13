@@ -1,3 +1,7 @@
 {{>blog-preview}}
-{{>comment-form}}
-{{>comment}}
+{{#if loggedIn}}
+    {{>comment-form}}
+{{/if}}
+{{#each Comments as |comment|}}
+    {{>comment}}
+{{/each}}

@@ -24,6 +24,14 @@ async function seedAll() {
                 {
                     UserID: 2,
                     Content: "Comment"
+                },
+                {
+                    UserID: 1,
+                    Content: "Comment response"
+                },
+                {
+                    UserID: 2,
+                    Content: "Comment 2"
                 }
             ]
         },

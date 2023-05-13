@@ -21,18 +21,22 @@
             <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                 Home
             </a>
+            {{#if loggedIn}}
             <a href="/dashboard" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                 Dashboard
             </a>
+            {{/if}}
         </div>
         <div>
-            <a href="/login" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-                Login
-            </a>
-            </a>
+            {{#if loggedIn}}
             <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
                 Logout
             </a>
+            {{else}}
+            <a href="/login" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                Login
+            </a>
+            {{/if}}
         </div>
     </div>
 </nav>
