@@ -1,8 +1,27 @@
 const router = require("express").Router();
+const util = require("./util");
+const {Post, Comment, User} = require("../models");
 
 
 router.get("/", (req, res) => {
-    res.render("home");
+    util.SafeRequest(res, async (res) => {
+        let posts = await Post.findAll({
+            include: [User]
+        });
+
+        if (posts) {
+            posts = posts.map(x => {
+                let post = x.get();
+                post.User = x.User.get();
+
+                return post;
+            });
+        } else {
+            posts = []
+        }
+
+        res.render("home", {posts});
+    })
 })
 
 router.get("/login", (req, res) => {
