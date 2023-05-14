@@ -4,10 +4,11 @@
         <div class="mb-8 object-fill">
             <label>Blog Title</label>
             <input class="font-bold text-xl mb-2 bg-teal-500 text-white p-1 rounded
-                max-w-sm w-full lg:max-w-full" type="text" id="Blog-Title" />
+                max-w-sm w-full lg:max-w-full" type="text" id="Blog-Title"
+                minlength="5" maxlength="255" required="true"/>
             <label>Blog Content</label>
             <textarea class="border border-grey-200 max-w-sm w-full lg:max-w-full"
-                id="Blog-Content"></textarea>
+                id="Blog-Content" minlength="50" maxlength="5000" required="true"></textarea>
         </div>
         <div class="flex items-center">
             <div class="text-sm">

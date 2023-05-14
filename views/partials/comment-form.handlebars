@@ -5,7 +5,8 @@
         <input type="hidden" id="Comment-BlogID" value="{{ID}}" />
         <div class="mb-8 object-fill">
             <div class="font-bold text-xl mb-2 bg-teal-500 text-white p-1 rounded"></div>
-            <textarea class="border border-grey-200 max-w-sm w-full lg:max-w-full" id="Comment-Content"></textarea>
+            <textarea class="border border-grey-200 max-w-sm w-full lg:max-w-full" id="Comment-Content"
+            required="true" minlength="5" maxlength="500"></textarea>
         </div>
         <div class="flex items-center">
             <div class="text-sm">
