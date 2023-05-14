@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const util = require("../util");
 const middleware = require("../../utils/middleware");
-const {Post, Comment} = require("../../models");
+const { Post, Comment } = require("../../models");
 
 module.exports = router;
 
@@ -14,7 +14,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.get("/:id/comment", (req, res) => {
-    util.SafeGetByID(req.params.id, res, Post, [{model: Comment}])
+    util.SafeGetByID(req.params.id, res, Post, [{ model: Comment }])
 });
 
 router.post("/:id/comment", middleware.verifyLoggedIn, (req, res) => {
@@ -30,5 +30,39 @@ router.post("/", middleware.verifyLoggedIn, (req, res) => {
         Title: req.body.Title,
         Content: req.body.Content,
         UserID: req.session.userID
+    });
+});
+
+router.put("/:id", middleware.verifyLoggedIn, (req, res) => {
+    util.SafeRequest(res, async (res) => {
+        let post = await Post.findByPk(req.params.id);
+
+        if (req.session.userID === post.get().UserID) {
+            post.set({
+                Title: req.body.Title,
+                Content: req.body.Content 
+            });
+
+            post = await post.save();
+
+            res.json(JSON.stringify(post));
+        } else {
+            res.status(401).json("Unauthorized");
+        }
+    });
+});
+
+router.delete("/:id", middleware.verifyLoggedIn, (req, res) => {
+    util.SafeRequest(res, async (res) => {
+        let post = await Post.findByPk(req.params.id);
+
+        if (req.session.userID === post.get().UserID) {
+
+            post = await post.destroy();
+
+            res.json(JSON.stringify(post));
+        } else {
+            res.status(401).json("Unauthorized");
+        }
     });
 });

@@ -2,24 +2,39 @@
     <div class="border border-teal-400 lg:border-teal-400 bg-white rounded lg:rounded p-4 flex flex-col justify-between leading-normal 
         max-w-sm w-full lg:max-w-full">
         <div class="mb-8 object-fill">
+            <input type="hidden" id="Blog-ID" value="{{ID}}" />
             <label>Blog Title</label>
-            <input class="font-bold text-xl mb-2 bg-teal-500 text-white p-1 rounded
-                max-w-sm w-full lg:max-w-full" type="text" id="Blog-Title"
-                minlength="5" maxlength="255" required="true"/>
+            <div class="mb-2 bg-teal-500 p-1 rounded text-white flex">
+                <div class="flex-grow">
+                    <input class="bg-teal-500 font-bold text-xl max-w-sm w-full lg:max-w-full" type="text"
+                        id="Blog-Title" minlength="5" maxlength="255" required="true" value="{{Title}}" />
+                </div>
+            </div>
             <label>Blog Content</label>
-            <textarea class="border border-grey-200 max-w-sm w-full lg:max-w-full"
-                id="Blog-Content" minlength="50" maxlength="5000" required="true"></textarea>
+            <textarea class="border border-grey-200 max-w-sm w-full lg:max-w-full" id="Blog-Content" minlength="50"
+                maxlength="5000" required="true">{{Content}}</textarea>
         </div>
         <div class="flex items-center">
             <div class="text-sm">
                 <button
                     class="shadow bg-teal-500 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                     type="submit">
+                    {{#if Owner}}
+                    Update Blog
+                    {{else}}
                     Add Blog
+                    {{/if}}
                 </button>
             </div>
         </div>
     </div>
 </form>
+<div>
+    {{#if Owner}}
+    <form id="Delete" method="" action="/api/post/{{ID}}">
+        <button type="submit" class="shadow bg-teal-500 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Delete</button>
+    </form>
+    {{/if}}
+</div>
 
 <script src="/scripts/blog.js"></script>
