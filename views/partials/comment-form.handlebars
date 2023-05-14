@@ -1,19 +1,22 @@
-<form class="max-w-sm w-full lg:max-w-full lg:flex m-5">
+<form id="New-Comment" class="max-w-sm w-full lg:max-w-full lg:flex m-5" method="POST" action="/api/post/{{ID}}/comment">
     <div
         class="border border-teal-400 lg:border-teal-400 bg-white rounded lg:rounded p-4 flex flex-col justify-between leading-normal 
         max-w-sm w-full lg:max-w-full">
+        <input type="hidden" id="Comment-BlogID" value="{{ID}}" />
         <div class="mb-8 object-fill">
             <div class="font-bold text-xl mb-2 bg-teal-500 text-white p-1 rounded"></div>
-            <textarea class="border border-grey-200 max-w-sm w-full lg:max-w-full"></textarea>
+            <textarea class="border border-grey-200 max-w-sm w-full lg:max-w-full" id="Comment-Content"></textarea>
         </div>
         <div class="flex items-center">
             <div class="text-sm">
                 <button
                     class="shadow bg-teal-500 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                    type="button">
+                    type="submit">
                     Add Comment
                 </button>
             </div>
         </div>
     </div>
 </form>
+
+<script src="/scripts/comment.js"></script>

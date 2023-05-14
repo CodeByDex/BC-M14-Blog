@@ -15,7 +15,15 @@ router.get("/:id", (req, res) => {
 
 router.get("/:id/comment", (req, res) => {
     util.SafeGetByID(req.params.id, res, Post, [{model: Comment}])
-} );
+});
+
+router.post("/:id/comment", middleware.verifyLoggedIn, (req, res) => {
+    util.SafeCreate(res, Comment, {
+        Content: req.body.Content,
+        PostID: req.params.id,
+        UserID: req.session.userID
+    })
+});
 
 router.post("/", middleware.verifyLoggedIn, (req, res) => {
     util.SafeCreate(res, Post, {
