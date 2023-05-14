@@ -10,8 +10,6 @@ function addLoginEvent() {
         const UserName = document.querySelector("#Login-Username").value
         const Password = document.querySelector("#Login-Password").value
 
-        console.log(UserName, Password);
-
         const response = await fetch('/api/user/login', {
             method: "POST",
             headers: {

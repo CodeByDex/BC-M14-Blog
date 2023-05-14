@@ -60,9 +60,9 @@ router.get("/dashboard", middleware.verifyLoggedIn, (req, res) => {
         });
 
         posts = renderBlogPreview(posts);
-    })
 
-    res.render("dashboard", posts);
+        res.render("dashboard", {posts});
+    })
 })
 
 module.exports = router;
