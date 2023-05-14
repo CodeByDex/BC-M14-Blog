@@ -42,6 +42,7 @@ router.get("/blog/:id", (req, res) => {
                 comment.User = comment.User.get();
                 return comment;
             });
+            post.Owner = post.UserID === req.session.userID;
         } else {
             post = {};
         }

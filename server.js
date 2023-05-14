@@ -15,10 +15,7 @@ const sess = {
     secret: uuidv4(),
     cookie: { secure: true},
     resave: false,
-    saveUninitialized: false,
-    // store: new SequelizeStore({
-    //     db: sequelize
-    // })
+    saveUninitialized: false
 };
 
 if (process.env.landscape === "local"){

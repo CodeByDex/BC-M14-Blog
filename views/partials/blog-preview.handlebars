@@ -1,18 +1,24 @@
 <div class="max-w-sm w-full lg:max-w-full lg:flex m-5">
-    <a href="/blog/{{ID}}" class="max-w-sm w-full lg:max-w-full">
-        <div
-            class="border border-teal-400 lg:border-teal-400 bg-white rounded lg:rounded p-4 flex flex-col justify-between leading-normal
+    <div class="border border-teal-400 lg:border-teal-400 bg-white rounded lg:rounded p-4 flex flex-col justify-between leading-normal
             max-w-sm w-full lg:max-w-full">
-            <div class="mb-8">
-                <div class="font-bold text-xl mb-2 bg-teal-500 text-white p-1 rounded">{{Title}}</div>
-                <p class="text-base">{{Content}}</p>
-            </div>
-            <div class="flex items-center">
-                <div class="text-sm">
-                    <p class="leading-none">{{User.UserName}}</p>
-                    <p class="text-teal-600">{{createdAt}}</p>
+        <div class="mb-8">
+            <div class="mb-2 bg-teal-500 p-1 rounded text-white flex">
+                <div class="font-bold text-xl flex-grow">
+                    <a href="/blog/{{ID}}">{{Title}}</a>
+                </div>
+                <div>
+                    {{#if Owner}}
+                    <a href="/blog/{{ID}}/edit">Edit</a>
+                    {{/if}}
                 </div>
             </div>
+            <p class="text-base">{{Content}}</p>
         </div>
-    </a>
+        <div class="flex items-center">
+            <div class="text-sm">
+                <p class="leading-none">{{User.UserName}}</p>
+                <p class="text-teal-600">{{createdAt}}</p>
+            </div>
+        </div>
+    </div>
 </div>
