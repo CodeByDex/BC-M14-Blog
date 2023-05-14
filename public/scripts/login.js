@@ -4,11 +4,32 @@ window.addEventListener("load", (event) => {
 });
 
 function addLoginEvent() {
-    document.querySelector("#Login").addEventListener("submit", (event) => {
+    document.querySelector("#Login").addEventListener("submit", async (event) => {
         event.preventDefault();
-        alert("Login");
+
+        const UserName = document.querySelector("#Login-Username").value
+        const Password = document.querySelector("#Login-Password").value
+
+        console.log(UserName, Password);
+
+        const response = await fetch('/api/user/login', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                UserName,
+                Password
+            })
+        });
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert("Error Logging In");
+        }
     });
 };
+
 
 function addNewUserEvent() {
     document.querySelector("#Sign-Up").addEventListener("submit", async (event) => {
@@ -32,7 +53,7 @@ function addNewUserEvent() {
         if (response.ok) {
             document.location.replace('/');
         } else {
-            alert("Error Loggin In");
+            alert("Error Creating Account");
         }
     });
 };
