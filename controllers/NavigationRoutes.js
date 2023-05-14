@@ -55,14 +55,14 @@ router.get("/dashboard", middleware.verifyLoggedIn, (req, res) => {
         let posts = await Post.findAll({
             include: [User],
             where: {
-                UserID: req.session.UserID
+                UserID: req.session.userID
             }
         });
 
         posts = renderBlogPreview(posts);
     })
 
-    res.render("dashboard");
+    res.render("dashboard", posts);
 })
 
 module.exports = router;

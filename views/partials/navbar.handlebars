@@ -29,9 +29,9 @@
         </div>
         <div>
             {{#if loggedIn}}
-            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-                Logout
-            </a>
+            <form id="Logout" method="POST" action="/api/user/logout">
+                <button type="submit" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">Logout</button>
+            </form>
             {{else}}
             <a href="/login" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
                 Login
@@ -40,3 +40,5 @@
         </div>
     </div>
 </nav>
+
+<script src="/scripts/navbar.js"></script>

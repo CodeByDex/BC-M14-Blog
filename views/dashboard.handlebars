@@ -1,3 +1,5 @@
 {{>blog-form}}
-{{>blog-preview}}
-{{>blog-preview}}
+
+{{#each posts as |post|}}
+{{> blog-preview}}
+{{/each}}
