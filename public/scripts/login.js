@@ -36,8 +36,6 @@ function addNewUserEvent() {
         const UserName = document.querySelector("#New-UserName").value
         const Password = document.querySelector("#New-Password").value
 
-        console.log(UserName, Password);
-
         const response = await fetch('/api/user', {
             method: "POST",
             headers: {

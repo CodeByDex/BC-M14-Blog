@@ -58,7 +58,6 @@ module.exports = router;
 
 
 function setLoginInfo(req, id, res) {
-    console.log(`User: ${id} Logged In`);
     req.session.userID = id;
     req.session.loggedIn = true;
 

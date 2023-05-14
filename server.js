@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 3001;
 
 const sess = {
     secret: uuidv4(),
+    proxy: true,
     cookie: { secure: true},
     resave: false,
     saveUninitialized: false
