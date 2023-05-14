@@ -1,5 +1,11 @@
 window.addEventListener("load", (event) => {
-    document.querySelector("#Logout").addEventListener("submit", async (event) => {
+    const logout = document.querySelector("#Logout");
+
+    if (!logout) {
+        return;
+    }
+    
+    logout.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         const response = await fetch('/api/user/logout', {

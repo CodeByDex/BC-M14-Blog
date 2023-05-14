@@ -7,6 +7,7 @@ const session = require("express-session");
 require("dotenv").config();
 const {v4: uuidv4} = require("uuid");
 const middleware = require("./utils/middleware");
+const viewHelper = require("./utils/viewHelper");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -24,7 +25,7 @@ if (process.env.landscape === "local"){
 
 app.use(session(sess));
 
-const hbs = exphbs.create();
+const hbs = exphbs.create({ helpers: viewHelper});
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
